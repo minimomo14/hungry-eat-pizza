@@ -41,9 +41,7 @@ function CreateOrder() {
     <div>
       <h2>Ready to order? Let&apos;s go!</h2>
 
-    
-
-      <Form method="POST">
+      <Form method="POST" action="">
         <div>
           <label>First Name</label>
           <input type="text" name="customer" required />
@@ -82,4 +80,11 @@ function CreateOrder() {
   );
 }
 
+export function action({request}) {
+  const formData = await request.formData();
+  const data = Object.fromEntries(formData);
+  console.log(data);
+
+  return null;
+}
 export default CreateOrder;
